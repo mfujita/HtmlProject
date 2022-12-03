@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espiral</title>
+    <style>
+        #tela { background-color: khaki;  margin: auto; display: block;}
+    </style>
+</head>
+<body onload="drawLines()">
+
+    <canvas id="tela" width="1000" height="1000"></canvas>
+
+    <script>
+        var tela = document.getElementById("tela");
+        var ctx = tela.getContext("2d");
+
+        var qtdeTracos = 16; 
+        //window.prompt("A espiral quadrada deve ter quantos traços?");
+        var espacamento = 30; 
+        //window.prompt("Qual o espaçamento?"); 
+
+        // var espacamento = 50;
+
+        ctx.beginPath();
+        ctx.moveTo(500, 500);
+        ctx.lineTo(500, 500-espacamento);
+        ctx.stroke();
+
+        function desenhaEspiral(i, fator) {
+            if (i%4 == 2) {
+            x=fator;
+            y=-fator;
+            }
+            else if (i%4 == 3) {
+                x=fator;
+                y=fator;
+            }
+            else if(i%4 == 0) {
+                x=-fator;
+                y=fator;                    
+            }
+            else if (i%4 == 1) {
+                x=-fator;
+                y=-(fator+1);
+            }
+
+            ctx.lineTo(500+espacamento*x, 500+espacamento*y);
+            ctx.stroke();
+        }
+
+        function drawLines() {
+            var fator = 1;
+            var  i=2;
+
+            lines = setInterval(() => {
+                    desenhaEspiral(i, fator);
+                    i++;
+                    if ((i+2)%4==0)
+                        fator++;
+
+                    if (i >= 70) {
+                        clearInterval(lines);
+                    }
+                    
+                console.log(i);
+            }, 200);
+        }
+    </script>
+</body>
+</html>
