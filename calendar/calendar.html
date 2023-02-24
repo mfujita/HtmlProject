@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        table { font-family: 'Courier New', Courier, monospace; }
+        td { padding-left: 15px; padding-right: 15px; text-align: right;}
+    </style>
+</head>
+<body>
+    <h1>Calendário 2023</h1>
+
+    <div id="month1"></div>
+    <div id="month2"></div>
+    <div id="month3"></div>
+        
+
+    <script>
+        var createTable = function () {
+
+            let linhasTabela = '<table border="0" id="tabela">'+
+                '<thead>' +
+                    '<tr><th>Dom</th> <th>Seg</th> <th>Ter</th> <th>Qua</th> <th>Qui</th> <th>Sex</th> <th>Sab</th></tr>' +
+                    '<tr>' +
+                    '<tbody>' +
+                    '<tr>';
+            
+            function doTable1()  {
+
+                let inicio = getStartOfMount();
+                let counter = 1;
+
+                for (let i=inicio; i <= 28; i++) {
+                    if (i < 1) {
+                        linhasTabela += '<td></td>';
+                    } else {
+                        linhasTabela += '<td>' + i + '</td>';
+                    }
+                    if (counter % 7 == 0) {
+                            linhasTabela += '</tr>\n<tr>';
+                    }
+                    counter++;
+                }
+            };
+
+
+            doTable1();
+            linhasTabela += '\n</tr>\n</tbody>\n</table>';
+
+            // // console.log('linhasTabela ' + linhasTabela);
+            document.getElementById('month1').innerHTML = linhasTabela;
+
+
+
+            linhasTabela = '<table border="0" id="tabela">'+
+                '<thead>' +
+                    '<tr><th>Dom</th> <th>Seg</th> <th>Ter</th> <th>Qua</th> <th>Qui</th> <th>Sex</th> <th>Sab</th></tr>' +
+                    '<tr>' +
+                    '<tbody>' +
+                    '<tr>';
+            
+            function doTable2()  {
+                let counter = 1;
+
+                for (let i=-2; i <= 28; i++) {
+                    if (i < 1) {
+                        linhasTabela += '<td></td>';
+                    } else {
+                        linhasTabela += '<td>' + i + '</td>';
+                    }
+                    if (counter % 7 == 0) {
+                            linhasTabela += '</tr>\n<tr>';
+                    }
+                    counter++;
+                }
+            };
+
+            doTable2();
+            linhasTabela += '\n</tr>\n</tbody>\n</table>';
+
+            // console.log('linhasTabela ' + linhasTabela);
+            document.getElementById('month2').innerHTML = linhasTabela;
+
+
+            linhasTabela = '<table border="0" id="tabela">'+
+                '<thead>' +
+                    '<tr><th>Dom</th> <th>Seg</th> <th>Ter</th> <th>Qua</th> <th>Qui</th> <th>Sex</th> <th>Sab</th></tr>' +
+                    '<tr>' +
+                    '<tbody>' +
+                    '<tr>';
+            
+            function doTable3()  {
+                let counter = 1;
+
+                for (let i=-2; i <= 28; i++) {
+                    if (i < 1) {
+                        linhasTabela += '<td></td>';
+                    } else {
+                        linhasTabela += '<td>' + i + '</td>';
+                    }
+                    if (counter % 7 == 0) {
+                            linhasTabela += '</tr>\n<tr>';
+                    }
+                    counter++;
+                }
+            };
+
+            doTable3();
+            linhasTabela += '\n</tr>\n</tbody>\n</table>';
+
+            // console.log('linhasTabela ' + linhasTabela);
+            document.getElementById('month3').innerHTML = linhasTabela;
+
+
+
+
+            function getStartOfMount() {
+                let firstDayOfYear = new Date('january 1, 2023');
+                switch (firstDayOfYear.getDay()) {
+                    case 0: return 1;
+                    case 1: return 0;
+                    case 2: return -1;
+                    case 3: return -2;
+                    case 4: return -3;
+                    case 5: return -4;
+                    case 6: return -5;
+                }
+            } 
+
+            
+            let result = getStartOfMount();
+            console.log(result);
+        };        
+        
+        createTable();
+        
+    </script>
+</body>
+</html>
