@@ -8,7 +8,9 @@
     <title>Calendar</title>
     <style>
         table { font-family: 'Courier New', Courier, monospace; border: 1px solid black; }
+        th { text-align: center; }
         td { padding-left: 15px; padding-right: 15px; text-align: right;}
+        .sunday { color: red;}
     </style>
 </head>
 <body>
@@ -57,7 +59,15 @@
                         if (i < 1) {
                             linhasTabela += '<td></td>';
                         } else {
-                            linhasTabela += '<td>' + i + '</td>';
+                            if (counterForReminder % 7 == 1) {
+                                linhasTabela += '<td class="sunday">' + i + '</td>';
+                            }
+                            else {
+                                let part1 = i.toString().padStart(2,'0');
+                                // TODO: part2 = month
+                                linhasTabela += '<td class="'+part1+'">' + i + '</td>';
+                                console.log(linhasTabela);
+                            }                            
                         }
                         if (counterForReminder % 7 == 0) {
                                 linhasTabela += '</tr>\n<tr>';
