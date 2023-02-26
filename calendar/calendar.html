@@ -10,7 +10,8 @@
         table { font-family: 'Courier New', Courier, monospace; border: 1px solid black; }
         th { text-align: center; }
         td { padding-left: 15px; padding-right: 15px; text-align: right;}
-        .sunday { color: red;}
+        .sunday, .data0101, .data2104, .data0105, .data0709, .data1210, .data0211, .data1511, .data2512 { color: red;}
+
     </style>
 </head>
 <body>
@@ -44,7 +45,7 @@
                 
                 let linhasTabela;                
 
-                function bodyTable(inicio, ultimo, monthName) {
+                function bodyTable(inicio, ultimo, monthName, number) {
                     let counterForReminder = 1;
 
                     linhasTabela = '<table border="0" id="tabela">'+
@@ -63,9 +64,8 @@
                                 linhasTabela += '<td class="sunday">' + i + '</td>';
                             }
                             else {
-                                let part1 = i.toString().padStart(2,'0');
-                                // TODO: part2 = month
-                                linhasTabela += '<td class="'+part1+'">' + i + '</td>';
+                                let part1 = i.toString().padStart(2,'0');                                
+                                linhasTabela += '<td class=data'+part1+number+'>' + i + '</td>';
                                 console.log(linhasTabela);
                             }                            
                         }
@@ -82,84 +82,84 @@
                     if (i == 1) {
                         let firstDayOfYear = new Date('january 1, 2023');      
                         let firstWeekDay = getStartOfYear(firstDayOfYear.getDay());                        
-                        bodyTable(firstWeekDay, 31, "Janeiro");                        
+                        bodyTable(firstWeekDay, 31, "Janeiro", "01");                        
                         let month1 = document.getElementById('month1');
                         month1.innerHTML = linhasTabela;
                     }
                     else if (i == 2) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 28, "Fevereiro");                        
+                        bodyTable(firstWeekDay, 28, "Fevereiro", "02");                        
                         let month2 = document.getElementById('month2');
                         month2.innerHTML = linhasTabela;
                     }
                     else if (i == 3) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 31, "Março");                        
+                        bodyTable(firstWeekDay, 31, "Março", "03");                        
                         let month3 = document.getElementById('month3');
                         month3.innerHTML = linhasTabela;
                     }
                     else if (i == 4) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 30, "Abril");                        
+                        bodyTable(firstWeekDay, 30, "Abril","04");                        
                         let month4 = document.getElementById('month4');
                         month4.innerHTML = linhasTabela;
                     }
                     else if (i == 5) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 31, "Maio");                        
+                        bodyTable(firstWeekDay, 31, "Maio","05");                        
                         let month5 = document.getElementById('month5');
                         month5.innerHTML = linhasTabela;
                     }
                     else if (i == 6) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 30, "Junho");                        
+                        bodyTable(firstWeekDay, 30, "Junho","06");                        
                         let month6 = document.getElementById('month6');
                         month6.innerHTML = linhasTabela;
                     }
                     else if (i == 7) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 31, "Julho");                        
+                        bodyTable(firstWeekDay, 31, "Julho","07");                        
                         let month7 = document.getElementById('month7');
                         month7.innerHTML = linhasTabela;
                     }
                     else if (i == 8) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 31, "Agosto");                        
+                        bodyTable(firstWeekDay, 31, "Agosto","08");                        
                         let month8 = document.getElementById('month8');
                         month8.innerHTML = linhasTabela;
                     }
                     else if (i == 9) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 30, "Setembro");                        
+                        bodyTable(firstWeekDay, 30, "Setembro","09");                        
                         let month9 = document.getElementById('month9');
                         month9.innerHTML = linhasTabela;
                     }
                     else if (i == 10) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 31, "Outubro");                        
+                        bodyTable(firstWeekDay, 31, "Outubro","10");                        
                         let month10 = document.getElementById('month10');
                         month10.innerHTML = linhasTabela;
                     }
                     else if (i == 11) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 30, "Novembro");                        
+                        bodyTable(firstWeekDay, 30, "Novembro","11");                        
                         let month11 = document.getElementById('month11');
                         month11.innerHTML = linhasTabela;
                     }
                     else if (i == 12) {
                         pointerToLastDayOfMonth %= 7;
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
-                        bodyTable(firstWeekDay, 31, "Dezembro");                        
+                        bodyTable(firstWeekDay, 31, "Dezembro","12");                        
                         let month12 = document.getElementById('month12');
                         month12.innerHTML = linhasTabela;
                     }
