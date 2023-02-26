@@ -16,20 +16,20 @@
 
     <div class="container">
         <div class="row">
-            <div id="month1" class="col-xl-4"></div>
-            <div id="month2" class="col-xl-4"></div>
-            <div id="month3" class="col-xl-4"></div>
-            <div id="month4" class="col-xl-4"></div>
-            <div id="month5" class="col-xl-4"></div>
-            <div id="month6" class="col-xl-4"></div>
+            <div id="month1" class="col-xl-4 col-lg-6"></div>
+            <div id="month2" class="col-xl-4 col-lg-6"></div>
+            <div id="month3" class="col-xl-4 col-lg-6"></div>
+            <div id="month4" class="col-xl-4 col-lg-6"></div>
+            <div id="month5" class="col-xl-4 col-lg-6"></div>
+            <div id="month6" class="col-xl-4 col-lg-6"></div>
         </div>
         <div class="row">
-            <div id="month7" class="col-xl-4"></div>
-            <div id="month8" class="col-xl-4"></div>
-            <div id="month9" class="col-xl-4"></div>
-            <div id="month10" class="col-xl-4"></div>
-            <div id="month11" class="col-xl-4"></div>
-            <div id="month12" class="col-xl-4"></div>
+            <div id="month7" class="col-xl-4 col-lg-6"></div>
+            <div id="month8" class="col-xl-4 col-lg-6"></div>
+            <div id="month9" class="col-xl-4 col-lg-6"></div>
+            <div id="month10" class="col-xl-4 col-lg-6"></div>
+            <div id="month11" class="col-xl-4 col-lg-6"></div>
+            <div id="month12" class="col-xl-4 col-lg-6"></div>
         </div>
     </div>
         
@@ -95,7 +95,6 @@
                         let firstWeekDay = getStartOfYear(pointerToLastDayOfMonth-1);
                         bodyTable(firstWeekDay, 30, "Abril");                        
                         let month4 = document.getElementById('month4');
-                        console.log(linhasTabela);
                         month4.innerHTML = linhasTabela;
                     }
                     else if (i == 5) {
@@ -171,13 +170,7 @@
             }
             doTable();
         };
-        createTable(); 
-
-
-        
-
-        // let inicio = getStartOfMount();
-        // let counter = 1;  
+        createTable();         
     </script>
 </body>
 </html>
